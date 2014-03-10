@@ -1,0 +1,59 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-top:53px;
+}
+
+.section-body {
+  font-size: 18px;
+  height: 80vh;
+}
+
+.wildcard {
+  padding-top:5px;
+}
+
+.navbar {
+  margin: 0;
+  border-width: 0 0 4px 0;
+  -webkit-border-image: -webkit-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
+  -moz-border-image: -moz-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
+  border-image: linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
+
+  .container {
+    font-size: 18px;
+
+    .navbar-brand {
+      font-size: 28px;
+      color: black;
+    }
+
+  }
+}
+
+.push {
+  margin-top: 40px;
+}
+
+.full-bleed {
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0 7px 11px -2px #888;
+  -moz-box-shadow: 0 7px 11px -2px #888;
+  box-shadow: 0 7px 11px -2px #888;
+
+  .jumbotron {
+    background-color: rgba(255,255,255,.90);
+  }
+}
+
+.background {
+  width: 100%;
+}
+
+.else {
+  position: relative;
+}
+
