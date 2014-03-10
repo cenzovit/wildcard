@@ -3,27 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  padding-top:53px;
+  padding-top:54px;
+}
+
+.section {
+  min-height: 100vh;
+  padding-top: 45px;
 }
 
 .section-body {
   font-size: 18px;
-  height: 80vh;
 }
 
 .wildcard {
   padding-top:5px;
 }
 
+.btn-donate {
+  padding: 15px 45px;
+  font-size: 18px;
+}
+
+.icon-row {
+  margin-top:15px;
+  margin-bottom:15px;
+  .icon-tile {
+    text-align: center;
+  }
+}
+
+.anchor {
+  position: relative;
+  top: -40px;
+}
+
 .navbar {
   margin: 0;
   border-width: 0 0 4px 0;
-  -webkit-border-image: -webkit-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
-  -moz-border-image: -moz-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
+  border-image: -webkit-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
+  border-image: -moz-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
   border-image: linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
 
   .container {
     font-size: 18px;
+    a.icon:hover { 
+      color: #4099FF;
+    }
 
     .navbar-brand {
       font-size: 28px;
@@ -37,16 +62,18 @@ body {
   margin-top: 40px;
 }
 
+.donate-form {
+  text-align: center;
+  margin: 15px 0;
+}
+
 .full-bleed {
   position: relative;
+  max-height: 600px;
   overflow: hidden;
   -webkit-box-shadow: 0 7px 11px -2px #888;
   -moz-box-shadow: 0 7px 11px -2px #888;
   box-shadow: 0 7px 11px -2px #888;
-
-  .jumbotron {
-    background-color: rgba(255,255,255,.90);
-  }
 }
 
 .background {

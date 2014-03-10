@@ -5,50 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% # stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :media => "all" %>        
     <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootswatch/3.1.1/lumen/bootstrap.min.css", :media => "all" %>    
+    <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", :media => "all" %>    
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-   </head>
+  </head>
  
-   <body data-spy="scroll" data-target="#topbar" data-offset="53">
-     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="topbar">
-       <div class="container">
-         <div class="navbar-header">
-           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-           </button>
-           
-           <a class="navbar-brand" href="#" id="home"> <%= image_tag "wildcardwindow.png", style: "position:relative;top:-3px;width:25px;height:25px" %>&nbsp;&nbsp;Wild Card</a>
-         </div>
-         <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
-           <ul class="nav navbar-nav">
-             <li><a href="#about">About</a></li>
-             <li><a href="#donate">Donate</a></li>
-           </ul>
-         </div>
-       </div>
-     </nav>
+  <body data-spy="scroll" data-target="#topbar" data-offset="54">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="topbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-     <div>
-       <% if notice %>
-         <div class="alert alert-dismissable alert-info">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= notice %>
-         </div>
-       <% end %>
-       <% if alert %>
-         <div class="alert alert-dismissable alert-warning">
-           <button type="button" class="close" data-dismiss="alert">&times;</button>
-           <%= alert %>
-         </div>
-       <% end %>
- 
-       <%= yield %>
-     </div>
+        <a class="navbar-brand" href="#" id="home"> <%= image_tag "wildcardwindow.png", style: "position:relative;top:-3px;width:25px;height:25px" %>&nbsp;&nbsp;Wild Card</a>
+      </div>
+      <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#donate">Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="fa fa-twitter-square fa-lg icon" href="https://twitter.com/WildCardult" target="_blank"></a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
 
-   </body>
- 
- </html>
+    <div>
+      <% if notice %>
+        <div class="alert alert-dismissable alert-info">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-dismissable alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
+
+  <script>
+    $("#topbar ul li a[href^='#']").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // store hash
+      var hash = this.hash;
+
+      $(this).closest("li").addClass("active");
+
+      // animate
+      $('html, body').animate({
+        scrollTop: $(this.hash).offset().top
+        }, 300, function(){
+
+        // when done, add hash to url
+        // (default click behaviour)
+        window.location.hash = hash;
+      });
+    });
+
+    $("#home").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // store hash
+      var hash = this.hash;
+
+      // animate
+      $('html, body').animate({
+        scrollTop: 0
+        }, 300, function(){
+
+        //remove active class
+        $("#topbar .active").removeClass("active");
+        // when done, add hash to url
+        // (default click behaviour)
+        window.location.hash = hash;
+      });
+
+    });
+  </script>
+
+</html>
