@@ -185,8 +185,8 @@
       timer = setTimeout( refresh , 3000 );
       
       $(window).bind('scroll',function () {
-        $("#scroll-up").fadeOut(800);
-        $("#scroll-down").fadeOut(800);
+        $("#scroll-up").fadeOut(300);
+        $("#scroll-down").fadeOut(300);
         clearTimeout(timer);
         timer = setTimeout( refresh , 3000 );
       });
