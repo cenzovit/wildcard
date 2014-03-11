@@ -40,14 +40,21 @@ body {
 .navbar {
   margin: 0;
   border-width: 0 0 4px 0;
+  border-image: url(wildcard-border.png) 30 30 stretch;
   border-image: -webkit-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
   border-image: -moz-linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
   border-image: linear-gradient(left, red 0%, red 25%, blue 25%, blue 50%, gold 50%, gold 75%, green 75%, green 100%) 30 30 stretch;
 
   .container {
     font-size: 18px;
-    a.icon:hover { 
+    a.icon-twitter:hover { 
       color: #4099FF;
+    }
+    a.icon-blogger:hover { 
+      color: #FE4E00;
+    }
+    a.icon-savage:hover { 
+      color: #106236;
     }
 
     .navbar-brand {
@@ -67,9 +74,22 @@ body {
   margin: 15px 0;
 }
 
+.modal {
+   overflow-y: auto;
+ }
+
+.modal-open {
+  overflow: auto;
+}
+
+.modal-body {
+  font-size: 18px;
+  text-align: center;
+}
+
 .full-bleed {
   position: relative;
-  max-height: 600px;
+  max-height: 80vh;
   overflow: hidden;
   -webkit-box-shadow: 0 7px 11px -2px #888;
   -moz-box-shadow: 0 7px 11px -2px #888;
@@ -80,7 +100,53 @@ body {
   width: 100%;
 }
 
-.else {
-  position: relative;
+#scroll {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  text-align: center;
+  a {
+    color: #999999;
+  }
+  a:hover {
+    color: red;
+  }
 }
 
+@font-face {
+  font-family: 'wildcard';
+  src:url('fonts/wildcard.eot?-ky3tcc');
+  src:url('fonts/wildcard.eot?#iefix-ky3tcc') format('embedded-opentype'),
+  url('fonts/wildcard.woff?-ky3tcc') format('woff'),
+  url('fonts/wildcard.ttf?-ky3tcc') format('truetype'),
+  url('fonts/wildcard.svg?-ky3tcc#wildcard') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'wildcard';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-savage:before {
+  content: "\e600";
+}
+.icon-twitter:before {
+  content: "\e601";
+}
+.icon-blogger:before {
+  content: "\e602";
+}
+.icon-wildcard:before {
+  content: "\e603";
+}

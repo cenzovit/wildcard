@@ -30,7 +30,9 @@
           <li><a href="#donate">Donate</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="fa fa-twitter-square fa-lg icon" href="https://twitter.com/WildCardult" target="_blank"></a></li>
+          <li><a class="fa fa-lg icon-savage" href="http://www.savageultimate.com" target="_blank"></a></li>
+          <li><a class="fa fa-lg icon-blogger" href="https://wildcardultimate.blogspot.com" target="_blank"></a></li>
+          <li><a class="fa fa-lg icon-twitter" href="https://twitter.com/WildCardult" target="_blank"></a></li>
         </ul>
       </div>
     </div>
@@ -52,10 +54,69 @@
 
       <%= yield %>
     </div>
+    <div class="modal fade" id="thank-you" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title" id="myModalLabel">Thank You</h3>
+          </div>
+          <div class="modal-body">
+            <h1>Your donation is greatly appreciated!</h1>
+            <h5>The transaction has completed, and a receipt for your donation has been sent to your email.</h5>
+            <br>
+            <div class="row">
+              <div class="col-xs-4 col-xs-offset-4">
+                <i class="fa fa-heart fa-3x" style="color:red"></i>
+              </div>
+            </div>
+            <br>
+            Wild Card Ultimate
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div id="scroll">
+      <a href="#" id="down" class="hidden"><i class="fa fa-chevron-circle-down fa-5x"></i></a>
+    </div>
+    <div id="scroll">
+      <a href="#" id="up" class=""><i class="fa fa-chevron-circle-up fa-5x"></i></a>
+    </div>
   </body>
 
   <script>
+    
+    $(function() {
+      if (window.location.hash) {
+        // Fragment exists
+        var hash = window.location.hash.substring(1);
+        if (hash == "thank-you"){
+          $("#thank-you").modal('show')
+        }
+      }
+    });
+
+    $("#up").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // animate
+      $('html, body').animate({
+        scrollTop: 0
+        }, 300, function(){
+
+        //remove active class
+        $("#topbar .active").removeClass("active");
+        // when done, add hash to url
+        // (default click behaviour)
+        window.location.hash = "#";
+      });
+    });
+
     $("#topbar ul li a[href^='#']").on('click', function(e) {
       // prevent default anchor click behavior
       e.preventDefault();
@@ -96,6 +157,9 @@
       });
 
     });
+
+
+
   </script>
 
 </html>
