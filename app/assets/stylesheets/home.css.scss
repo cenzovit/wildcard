@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
 }
 
+
 .scroll-ninja {
   z-index: -1;
   position: absolute;
@@ -165,4 +166,17 @@ body {
 }
 .icon-wildcard:before {
   content: "\e603";
+}
+
+@media (max-width: 768px){
+  .section {
+    min-height: 0;
+    padding-top: 0;
+  }
+  .full-bleed-section {
+    min-height: 0;
+  }
+  .full-bleed {
+    max-height: auto;
+  }
 }
