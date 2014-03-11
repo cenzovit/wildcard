@@ -10,6 +10,12 @@ body {
   min-height: 100vh;
 }
 
+.scroll-ninja {
+  z-index: -1;
+  position: absolute;
+  width: 1px;
+}
+
 .section {
   min-height: 100vh;
   padding-top: 45px;
