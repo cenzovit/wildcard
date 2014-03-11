@@ -6,6 +6,10 @@ body {
   padding-top:54px;
 }
 
+.full-bleed-section {
+  min-height: 100vh;
+}
+
 .section {
   min-height: 100vh;
   padding-top: 45px;
@@ -13,6 +17,11 @@ body {
 
 .section-body {
   font-size: 18px;
+}
+
+.section-footer {
+  height: 70px;
+  margin: 0;
 }
 
 .wildcard {
@@ -100,7 +109,8 @@ body {
   width: 100%;
 }
 
-#scroll {
+.scroll {
+  display: none;
   width: 100%;
   position: fixed;
   bottom: 10px;

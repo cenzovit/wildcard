@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>WildCard Ultimate</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <% # stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :media => "all" %>        
     <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootswatch/3.1.1/lumen/bootstrap.min.css", :media => "all" %>    
@@ -80,41 +81,60 @@
       </div>
     </div>
 
-    <div id="scroll">
-      <a href="#" id="down" class="hidden"><i class="fa fa-chevron-circle-down fa-5x"></i></a>
+    <div id="scroll-down" class="scroll">
+      <a href="#" id="down"><i class="fa fa-chevron-circle-down fa-5x"></i></a>
     </div>
-    <div id="scroll">
-      <a href="#" id="up" class=""><i class="fa fa-chevron-circle-up fa-5x"></i></a>
+    <div id="scroll-up" class="scroll">
+      <a href="#" id="up"><i class="fa fa-chevron-circle-up fa-5x"></i></a>
     </div>
   </body>
 
   <script>
-    
-    $(function() {
-      if (window.location.hash) {
-        // Fragment exists
-        var hash = window.location.hash.substring(1);
-        if (hash == "thank-you"){
-          $("#thank-you").modal('show')
-        }
-      }
-    });
 
+    function scrollSmooth(loc, hash, remove){
+      $('html, body').animate({
+        scrollTop: loc
+        }, 300, function(){
+
+        //remove active class
+        if (remove) {
+          $("#topbar .active").removeClass("active");
+          $('body').scrollspy({ target: '#topbar' })
+        }
+        // when done, add hash to url
+        // (default click behaviour)
+        window.location.hash = hash;
+      });
+    }
+    
     $("#up").on('click', function(e) {
       // prevent default anchor click behavior
       e.preventDefault();
 
-      // animate
-      $('html, body').animate({
-        scrollTop: 0
-        }, 300, function(){
+      //hide arrow
+      $("#scroll-up").hide();
 
-        //remove active class
-        $("#topbar .active").removeClass("active");
-        // when done, add hash to url
-        // (default click behaviour)
-        window.location.hash = "#";
-      });
+      scrollSmooth(0, "#", true);
+    });
+
+    $("#down").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      //hide arrow
+      $("#scroll-down").hide();
+
+      var scrollTop = $(document).scrollTop();
+
+      if (scrollTop < $("#about").offset().top - 1){
+        scrollSmooth($("#about").offset().top, "#about", false);
+      }
+      else if(scrollTop < $("#donate").offset().top -1){
+        scrollSmooth($("#donate").offset().top, "#donate", false);
+      }
+      else {
+        scrollSmooth($(document).height(), "#donate", false);
+      }
     });
 
     $("#topbar ul li a[href^='#']").on('click', function(e) {
@@ -127,14 +147,7 @@
       $(this).closest("li").addClass("active");
 
       // animate
-      $('html, body').animate({
-        scrollTop: $(this.hash).offset().top
-        }, 300, function(){
-
-        // when done, add hash to url
-        // (default click behaviour)
-        window.location.hash = hash;
-      });
+      scrollSmooth($(this.hash).offset().top, hash, false);
     });
 
     $("#home").on('click', function(e) {
@@ -145,21 +158,39 @@
       var hash = this.hash;
 
       // animate
-      $('html, body').animate({
-        scrollTop: 0
-        }, 300, function(){
-
-        //remove active class
-        $("#topbar .active").removeClass("active");
-        // when done, add hash to url
-        // (default click behaviour)
-        window.location.hash = hash;
-      });
-
+      scrollSmooth(0, hash, true);
     });
 
+    $(function() {
+      if (window.location.hash) {
+        // Fragment exists
+        var hash = window.location.hash.substring(1);
+        if (hash == "thank-you"){
+          $("#thank-you").modal('show')
+        }
+      }
 
+      var refresh = function () { 
+        if ($(window).scrollTop() >= ($(document).height() - $(window).height()-1)) {
+          console.log("up");
+          $("#scroll-up").fadeIn(800);
+        }
+        else {
+          console.log("down");
+          $("#scroll-down").fadeIn(800);
+        }
+      };
+
+      var timer;
+      timer = setTimeout( refresh , 3000 );
+      
+      $(window).bind('scroll',function () {
+        $("#scroll-up").fadeOut(800);
+        $("#scroll-down").fadeOut(800);
+        clearTimeout(timer);
+        timer = setTimeout( refresh , 3000 );
+      });
+    });
 
   </script>
-
 </html>
