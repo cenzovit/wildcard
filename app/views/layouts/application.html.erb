@@ -33,7 +33,6 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a class="fa fa-lg icon-savage" href="http://www.savageultimate.com" target="_blank"></a></li>
-          <li><a class="fa fa-lg icon-blogger" href="https://wildcardultimate.blogspot.com" target="_blank"></a></li>
           <li><a class="fa fa-lg icon-twitter" href="https://twitter.com/WildCardult" target="_blank"></a></li>
         </ul>
       </div>
@@ -166,13 +165,13 @@
       };
 
       var timer;
-      timer = setTimeout( refresh , 3000 );
+      timer = setTimeout( refresh , 1000 );
       
       $(window).bind('scroll',function () {
         $("#scroll-up").fadeOut(300);
         $("#scroll-down").fadeOut(300);
         clearTimeout(timer);
-        timer = setTimeout( refresh , 3000 );
+        timer = setTimeout( refresh , 1000 );
       });
     });
 
