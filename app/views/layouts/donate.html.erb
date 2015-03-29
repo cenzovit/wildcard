@@ -1,0 +1,179 @@
+<!DOCTYPE html>                                                                                                                                                                                       
+<html>
+  <head>
+    <title>WildCard Ultimate</title>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <% # stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", :media => "all" %>        
+    <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootswatch/3.1.1/lumen/bootstrap.min.css", :media => "all" %>    
+    <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", :media => "all" %>    
+    <%= stylesheet_link_tag "donate", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+ 
+  <body data-spy="scroll" data-target="#topbar" data-offset="54">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="topbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#" id="home"> <%= image_tag "wildcardwindow.png", style: "position:relative;top:-3px;width:25px;height:25px" %>&nbsp;&nbsp;Wild Card</a>
+      </div>
+      <div class="navbar-collapse navbar-responsive-collapse collapse" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <li class="scroll-ninja"><a href="#home"></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#donate">Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="fa fa-lg icon-savage" href="http://www.savageultimate.com" target="_blank"></a></li>
+          <li><a class="fa fa-lg icon-twitter" href="https://twitter.com/WildCardult" target="_blank"></a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <div>
+      <%= yield %>
+    </div>
+
+    <div class="modal fade" id="thank-you" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title" id="myModalLabel">Thank You</h3>
+          </div>
+          <div class="modal-body">
+            <h1>Your donation is greatly appreciated!</h1>
+            <h5>The transaction has completed, and a receipt for your donation has been sent to your email.</h5>
+            <br>
+            <div class="row">
+              <div class="col-xs-4 col-xs-offset-4">
+                <i class="fa fa-heart fa-3x" style="color:red"></i>
+              </div>
+            </div>
+            <br>
+            Wild Card Ultimate
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scroll-down" class="scroll">
+      <a href="#" id="down"><i class="fa fa-chevron-circle-down fa-5x"></i></a>
+    </div>
+    <div id="scroll-up" class="scroll">
+      <a href="#" id="up"><i class="fa fa-chevron-circle-up fa-5x"></i></a>
+    </div>
+  </body>
+
+  <script>
+
+    function scrollSmooth(loc, hash){
+      $('html, body').animate({
+        scrollTop: loc
+        }, 300, function(){
+
+        // when done, add hash to url
+        // (default click behaviour)
+        if (hash != window.location.hash){
+          window.location.hash = hash;
+        }
+      });
+    }
+    
+    $("#up").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      //hide arrow
+      $("#scroll-up").hide();
+
+      scrollSmooth(0, "#");
+    });
+
+    $("#down").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      //hide arrow
+      $("#scroll-down").hide();
+
+      var scrollTop = $(document).scrollTop();
+
+      if (scrollTop < $("#about").offset().top - 1){
+        scrollSmooth($("#about").offset().top, "#about");
+      }
+      else if(scrollTop < $("#donate").offset().top -1){
+        scrollSmooth($("#donate").offset().top, "#donate");
+      }
+      else {
+        scrollSmooth($(document).height(), "#donate");
+      }
+    });
+
+    $("#topbar ul li a[href^='#']").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // store hash
+      var hash = this.hash;
+
+      $(this).closest("li").addClass("active");
+
+      // animate
+      scrollSmooth($(this.hash).offset().top, hash);
+    });
+
+    $("#home").on('click', function(e) {
+      // prevent default anchor click behavior
+      e.preventDefault();
+
+      // store hash
+      var hash = this.hash;
+
+      // animate
+      scrollSmooth(0, hash);
+    });
+
+    $(function() {
+      if (window.location.hash) {
+        // Fragment exists
+        var hash = window.location.hash.substring(1);
+        if (hash == "thank-you"){
+          $("#thank-you").modal('show')
+        }
+      }
+
+      var refresh = function () { 
+        if ($(window).scrollTop() >= ($(document).height() - $(window).height()-1)) {
+          $("#scroll-up").fadeIn(1000);
+        }
+        else {
+          $("#scroll-down").fadeIn(1000);
+        }
+      };
+
+      var timer;
+      timer = setTimeout( refresh , 1000 );
+      
+      $(window).bind('scroll',function () {
+        $("#scroll-up").fadeOut(300);
+        $("#scroll-down").fadeOut(300);
+        clearTimeout(timer);
+        timer = setTimeout( refresh , 1000 );
+      });
+    });
+
+  </script>
+</html>

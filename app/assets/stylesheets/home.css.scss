@@ -2,18 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  padding-top:54px;
-}
-
-#topbar {
-  opacity: .85;
-}
-
-.full-bleed-section {
-  min-height: 100vh;
-}
-
 .scroll-ninja {
   z-index: -1;
   position: absolute;
@@ -23,24 +11,9 @@ body {
 
 .section {
   min-height: 100vh;
-  padding-top: 40px;
 }
 
 .section-body {
-  font-size: 18px;
-}
-
-.section-footer {
-  height: 70px;
-  margin: 0;
-}
-
-.wildcard {
-  padding-top:5px;
-}
-
-.btn-donate {
-  padding: 15px 45px;
   font-size: 18px;
 }
 
@@ -89,31 +62,36 @@ body {
   margin-top: 40px;
 }
 
-.donate-form {
-  text-align: center;
-  margin: 15px 0;
+.brand {
+  font-size: 55px;
+  cursor: default;
 }
 
-.modal {
-   overflow-y: auto;
- }
-
-.modal-open {
-  overflow: auto;
+.lato-900 {
+  font-family: 'Lato' !important;
+  font-style: normal;
+  font-weight: 900;
 }
 
-.modal-body {
-  font-size: 18px;
-  text-align: center;
+.lato-100 {
+  font-family: 'Lato' !important;
+  font-style: normal;
+  font-weight: 100;
+}
+
+.full-bleed-section {
+  color: white;
 }
 
 .full-bleed {
   position: relative;
-  max-height: 80vh;
+  height: 95vh;
   overflow: hidden;
   -webkit-box-shadow: 0 7px 11px -2px #888;
   -moz-box-shadow: 0 7px 11px -2px #888;
   box-shadow: 0 7px 11px -2px #888;
+  background-image: url('/assets/wildcard-huddle.jpeg');
+  background-size: cover;
 }
 
 .background {
@@ -182,4 +160,8 @@ body {
   .full-bleed {
     max-height: auto;
   }
+  .brand {
+    font-size: 35px;
+  }
 }
+
