@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-2 col-xs-offset-5" id="down-hint-arrow">
-          <span class="fa-stack fa-2x">
+          <span class="fa-stack fa-2x fade-bounce">
             <span class="fa fa-circle-thin fa-stack-2x"></span>
             <span class="fa fa-chevron-down fa-stack-1x"></span>
           </span>
@@ -22,11 +22,9 @@
 <section class="section" id="about">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        Praesent condimentum dui sed lacus aliquet, et cursus diam tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam cursus, mauris ac pharetra eleifend, odio erat posuere mauris, eu lacinia tortor lorem at nunc. Duis molestie enim et rutrum posuere. Ut nibh sapien, vestibulum elementum posuere sit amet, aliquam viverra libero. Quisque congue accumsan lectus, eu gravida ex euismod vulputate. Vestibulum at accumsan risus. Maecenas varius molestie tellus et sagittis. Nam sed consequat quam. Quisque malesuada iaculis ante. Etiam efficitur nibh sit amet sem pretium placerat.
-      </div>
-      <div class="col-md-6">
-        Donec quis quam non lectus molestie scelerisque. Morbi commodo tincidunt iaculis. Pellentesque consequat justo purus. Nunc odio massa, eleifend quis nunc vitae, placerat venenatis lorem. Donec viverra, turpis non rhoncus laoreet, dui justo faucibus libero, sit amet congue arcu dolor et erat. Pellentesque varius vulputate sem id iaculis. Donec nunc metus, hendrerit et sodales in, tincidunt quis diam. Suspendisse et dictum ex. Vivamus urna erat, varius vitae dui eu, molestie convallis orci. Mauris bibendum tristique ante, a tincidunt sem euismod hendrerit. Pellentesque sed augue orci. Fusce auctor eu neque a dictum.
+      <div class="col-md-8 col-md-offset-2">
+        <h2>We are Wild Card Ultimate.</h2>
+        Born in 2012 from the idea that diverse talent with focused, hard work can achieve great things, Wild Card returns for its fourth season to test its mettle against the top teams in the United States and abroad. After three consecutive appearances at the USAU Club Championships, including two semi-final appearances and a Team Spirit award, Wild Card kicks off its summer ready to work toward another fall success. This young, determined team looks to build each season one point at a time, always supporting each other by creating a positive atmosphere while honoring its opponent and the spirit of competition on the field.  
       </div>
     </div>
   </div>
@@ -52,3 +50,71 @@
     </div>
   </div>
 </section>
+<script>
+  $(document).ready(function () {
+
+    var lastScroll = $(document).scrollTop();
+
+    var _ = function(obj) {
+      if (obj instanceof _) return obj;
+      if (!(this instanceof _)) return new _(obj);
+      this._wrapped = obj;
+    };
+
+    _.throttle = function(func, wait, options) {
+      var context, args, result;
+      var timeout = null;
+      var previous = 0;
+      options || (options = {});
+      var later = function() {
+        previous = new Date;
+        timeout = null;
+        result = func.apply(context, args);
+      };
+      return function() {
+        var now = new Date;
+        if (!previous && options.leading === false) previous = now;
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+        if (remaining <= 0) {
+          clearTimeout(timeout);
+          timeout = null;
+          previous = now;
+          result = func.apply(context, args);
+          } else if (!timeout && options.trailing !== false) {
+          timeout = setTimeout(later, remaining);
+        }
+        return result;
+      };
+    };
+
+    var throttledScroll = _.throttle(function () {
+      var temp = 0;
+      var scrollTop = $(document).scrollTop();
+      var windowHeight = $(window).height();
+      $(".section").each(function () {
+        var opacity = (scrollTop + (7/4)*$(this).height() - $(this).offset().top) / ($(this).height());
+        /*
+        if (lastScroll < scrollTop){
+          if (scrollTop > $(this).offset().top - windowHeight*(2/3)){
+            $(this).find(".container").addClass("fade-in");
+            $(this).find(".container").removeClass("fade-out");
+          }
+        }
+        else {
+          if (scrollTop < $(this).offset().top - windowHeight/3){
+            $(this).find(".container").addClass("fade-out");
+            $(this).find(".container").removeClass("fade-in");
+          }
+        }
+        */
+        console.log("ratio: " + opacity);
+        $(this).find(".container").fadeTo(0, opacity);
+      });
+      lastScroll = scrollTop;
+    }, 10);
+
+    $(window).bind('scroll',  throttledScroll);
+  });
+</script>

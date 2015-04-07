@@ -68,6 +68,103 @@
   font-weight: 100;
 }
 
+.section {
+  min-height: 70vh;
+  font-size: 20px;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+}
+
+@-moz-keyframes fadeIn { 
+  0% { 
+    opacity:0; 
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
+
+@-webkit-keyframes fadeIn { 
+  0% { 
+    opacity:0; 
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
+
+@-o-keyframes fadeIn {
+  0% { 
+    opacity:0; 
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
+
+@-ms-keyframes fadeIn {
+  0% { 
+    opacity:0; 
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
+
+@keyframes fadeIn { 
+  0% { 
+    opacity:0; 
+  } 
+  100% { 
+    opacity:1; 
+  } 
+}
+
+@-moz-keyframes fadeOut { 
+  0% { 
+    opacity:1; 
+  } 
+  100% { 
+    opacity:0; 
+  } 
+}
+
+@-webkit-keyframes fadeOut { 
+  0% { 
+    opacity:1; 
+  } 
+  100% { 
+    opacity:0; 
+  } 
+}
+
+@-o-keyframes fadeOut {
+  0% { 
+    opacity:1; 
+  } 
+  100% { 
+    opacity:0; 
+  } 
+}
+
+@-ms-keyframes fadeOut {
+  0% { 
+    opacity:1; 
+  } 
+  100% { 
+    opacity:0; 
+  } 
+}
+
+@keyframes fadeOut { 
+  0% { 
+    opacity:1; 
+  } 
+  100% { 
+    opacity:0; 
+  } 
+}
+
 @-moz-keyframes fadebounce {
   0% {
     -moz-transform:translateY(0);
@@ -154,6 +251,70 @@
   }
 }
 
+.fade-in {
+  opacity:0;  
+
+  -webkit-animation: fadeIn ease-in 1;  
+  -moz-animation: fadeIn ease-in 1;
+  -ms-animation-name: fadeIn ease-in 1;
+  -o-animation-name: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;  
+  -moz-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fade-out {
+  opacity:1;  
+
+  -webkit-animation: fadeOut ease-in 1;  
+  -moz-animation: fadeOut ease-in 1;
+  -ms-animation-name: fadeOut ease-in 1;
+  -o-animation-name: fadeOut ease-in 1;
+  animation: fadeOut ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;  
+  -moz-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fade-bounce {
+  -webkit-animation-name: fadebounce;
+  -moz-animation-name: fadebounce;
+  -ms-animation-name: fadebounce;
+  -o-animation-name: fadebounce;
+  animation-name: fadebounce;
+
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -ms-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
 .full-bleed-section {
   height: 100vh;
   color: #fff;
@@ -181,32 +342,10 @@
     line-height: 8vh;
 
     .fa-stack {
-      -webkit-animation-name: fadebounce;
-      -moz-animation-name: fadebounce;
-      -ms-animation-name: fadebounce;
-      -o-animation-name: fadebounce;
-      animation-name: fadebounce;
-      -webkit-animation-duration: 3s;
-      -moz-animation-duration: 3s;
-      -ms-animation-duration: 3s;
-      -o-animation-duration: 3s;
-      animation-duration: 3s;
-      -webkit-animation-iteration-count: infinite;
-      -moz-animation-iteration-count: infinite;
-      -ms-animation-iteration-count: infinite;
-      -o-animation-iteration-count: infinite;
-      animation-iteration-count: infinite;
       top: -1vh;
       position: relative;
     }
   }
-}
-
-.section {
-  min-height: 70vh;
-  font-size: 20px;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
 }
 
 #about {
