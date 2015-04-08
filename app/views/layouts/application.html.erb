@@ -1,7 +1,7 @@
 <!DOCTYPE html>                                                                                                                                                                                       
 <html>
   <head>
-    <title>WildCard Ultimate</title>
+    <title>Wild Card Ultimate</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,900' rel='stylesheet' type='text/css'>
@@ -16,5 +16,54 @@
   <body>
       <%= yield %>
   </body>
+
+  <footer>
+    <div id="footer">
+      <a href="https://twitter.com/WildCardult" target="_blank">Follow us on 
+      <span class="fa-stack fa">
+        <span class="fa fa-circle-thin fa-stack-2x"></span>
+        <span class="fa fa-twitter fa-stack-1x"></span>
+      </span>
+      </a>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="thank-you" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="myModalLabel">Thank You</h3>
+        </div>
+        <div class="modal-body">
+          <h1>Your donation is greatly appreciated!</h1>
+          <h5>The transaction has completed, and a receipt for your donation has been sent to your email.</h5>
+          <br>
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <i class="fa fa-heart fa-3x" style="color:red"></i>
+            </div>
+          </div>
+          <br>
+          Wild Card Ultimate
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(function() {
+      if (window.location.hash) {
+        // Fragment exists
+        var hash = window.location.hash.substring(1);
+        if (hash == "thank-you"){
+          $("#thank-you").modal('show');
+        }
+      }
+    });
+  </script>
 
 </html>
