@@ -151,50 +151,6 @@
 </section>
 <script>
   $(document).ready(function () {
-    var _ = function(obj) {
-      if (obj instanceof _) return obj;
-      if (!(this instanceof _)) return new _(obj);
-      this._wrapped = obj;
-    };
-
-    _.throttle = function(func, wait, options) {
-      var context, args, result;
-      var timeout = null;
-      var previous = 0;
-      options || (options = {});
-      var later = function() {
-        previous = new Date;
-        timeout = null;
-        result = func.apply(context, args);
-      };
-      return function() {
-        var now = new Date;
-        if (!previous && options.leading === false) previous = now;
-        var remaining = wait - (now - previous);
-        context = this;
-        args = arguments;
-        if (remaining <= 0) {
-          clearTimeout(timeout);
-          timeout = null;
-          previous = now;
-          result = func.apply(context, args);
-          } else if (!timeout && options.trailing !== false) {
-          timeout = setTimeout(later, remaining);
-        }
-        return result;
-      };
-    };
-
-    var throttledScroll = _.throttle(function () {
-      var temp = 0;
-      var scrollTop = $(document).scrollTop();
-      var windowHeight = $(window).height();
-      $(".section").each(function () {
-        var opacity = (scrollTop + (4/5)*windowHeight - $(this).offset().top) / ($(this).height() < windowHeight ? $(this).height() : windowHeight);
-        $(this).find(".container").fadeTo(0, opacity);
-      });
-    }, 100);
-
     var animating = false;
     var lastScrollTop = $(document).scrollTop();
     var animationObjects = $(".section");
@@ -226,7 +182,6 @@
       animating = false;
     }
 
-    //$(window).bind('scroll',  throttledScroll);
     $(window).bind('scroll',  scrollListener);
   });
 </script>
