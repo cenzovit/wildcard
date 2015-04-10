@@ -162,13 +162,13 @@
 
     function requestAnimation(){
       if (!animating){
+        animating = true;
         if (window.requestAnimationFrame){
           requestAnimationFrame(update);
         }
         else {
           update();
         }
-        animating = true;
       }
     }
 
