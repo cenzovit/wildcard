@@ -31,7 +31,7 @@
         After three consecutive appearances at the USAU Club Championships, including two semi-final appearances and a Team Spirit award, Wild Card kicks off its 2015 summer ready to work toward another successful fall. 
         </p>
         <p>
-        As a young and determined team, we look to build each season one point at a time, and strive to maintain a positive atmosphere on the playing field by supporting eachother, honoring our opposition, and upholding the spirit of competition.
+        As a young and determined team, we look to build each season one point at a time, and strive to maintain a positive atmosphere on the playing field by supporting each other, honoring our opposition, and upholding the spirit of competition.
         </p>
       </div>
     </div>
@@ -193,8 +193,40 @@
         var opacity = (scrollTop + (4/5)*windowHeight - $(this).offset().top) / ($(this).height() < windowHeight ? $(this).height() : windowHeight);
         $(this).find(".container").fadeTo(0, opacity);
       });
-    }, 10);
+    }, 100);
 
-    $(window).bind('scroll',  throttledScroll);
+    var animating = false;
+    var lastScrollTop = $(document).scrollTop();
+    var animationObjects = $(".section");
+
+    function scrollListener(){
+      lastScrollTop = $(document).scrollTop();
+      requestAnimation();
+    }
+
+    function requestAnimation(){
+      if (!animating){
+        if (window.requestAnimationFrame){
+          requestAnimationFrame(update);
+        }
+        else {
+          update();
+        }
+        animating = true;
+      }
+    }
+
+    function update(){
+      var windowHeight = $(window).height();
+      for(var index = 0; index < animationObjects.length; index++){
+        var animationObject = animationObjects.eq(index);
+        var opacity = (lastScrollTop + (4/5)*windowHeight - animationObject.offset().top) / (animationObject.height() < windowHeight ? animationObject.height() : windowHeight)
+        animationObject.find(".container:first").css("opacity", opacity.toFixed(3));
+      }
+      animating = false;
+    }
+
+    //$(window).bind('scroll',  throttledScroll);
+    $(window).bind('scroll',  scrollListener);
   });
 </script>
