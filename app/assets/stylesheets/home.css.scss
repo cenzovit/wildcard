@@ -526,7 +526,7 @@ background: $spec-backgrounds;
   box-shadow: 7px 7px 11px -3px #CA4949;
 }
 
-#tryout {
+#values {
   position: relative;
   z-index: 1;
   background-color: #FF5555;
@@ -534,24 +534,13 @@ background: $spec-backgrounds;
   -webkit-box-shadow: 0 10px 11px -2px #888;
   -moz-box-shadow: 0 10px 11px -2px #888;
   box-shadow: 0 10px 11px -2px #888;
-
-  h2 {
+  h1 {
+    font-size: 45px;
+    text-align: center;
     margin-top: 0;
   }
   p {
     margin-bottom: 1.5em;
-  }
-  table {
-    font-size: 14px;
-    thead {
-      padding-bottom: 9.5px;
-      margin: 42px 0 21px;
-      border-bottom: 1px solid #dddddd;
-      h3 {
-        margin-top: 0;
-      }
-      
-    }
   }
   a {
     color: #FFD500;
