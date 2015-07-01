@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sponsor {
+  padding-left: 25px;
+}
+
 .btn-donate {
   padding: 15px 45px;
   font-size: 18px;
@@ -634,7 +638,6 @@ background: $spec-backgrounds;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -642,16 +645,19 @@ background: $spec-backgrounds;
 }
 
 .icon-savage:before {
-  content: "\e600";
-}
-.icon-twitter:before {
   content: "\e601";
 }
-.icon-blogger:before {
+.icon-twitter:before {
   content: "\e602";
 }
-.icon-wildcard:before {
+.icon-blogger:before {
   content: "\e603";
+}
+.icon-wildcard:before {
+  content: "\e604";
+}
+.icon-five:before {
+  content: "\e600";
 }
 
 @media (max-width: 768px){
@@ -667,5 +673,13 @@ background: $spec-backgrounds;
   .brand {
     font-size: 35px;
   }
+  .sponsor {
+    font-size: 12px;
+    padding-left: 15px;
+    img {
+      width: 148px;
+    }
+  }
+  
 }
 
