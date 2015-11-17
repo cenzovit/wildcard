@@ -6,6 +6,12 @@
   padding-left: 25px;
 }
 
+.signature {
+  font-family: 'Herr Von Muellerhoff', cursive !important;
+  font-style: normal;
+  font-size: 2em;
+}
+
 .btn-donate {
   padding: 15px 45px;
   font-size: 18px;
@@ -562,7 +568,7 @@ background: $spec-backgrounds;
   }
 }
 
-#tryout:after {
+#values:after {
   content: "";
   z-index: 100;
   position: absolute;
