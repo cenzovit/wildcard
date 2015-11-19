@@ -109,17 +109,17 @@
   padding-bottom: 12vh;
 }
 
-hr.fancy-hr {
+hr.wc-hr {
   padding: 0;
   border: none;
-  border-top: medium double #333;
+  border-top: 1px solid #333;
   color: #333;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-hr.fancy-hr:before {
+hr.wc-hr:before {
   content: "";
   display: block;
   position: relative;
@@ -130,7 +130,7 @@ hr.fancy-hr:before {
   background: white;
 }
 
-hr.fancy-hr:after {
+hr.wc-hr:after {
   content: "";
   display: block;
   position: relative;
