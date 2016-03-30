@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div class="tryout-banner">
+  <div class="tryout-banner fixed">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -156,11 +156,11 @@
         var opacity = (lastScrollTop + (4/5)*windowHeight - animationObject.offset().top) / (animationObject.height() < windowHeight ? animationObject.height() : windowHeight)
         animationObject.find(".container:first").css("opacity", opacity.toFixed(3));
       }
-      if ((lastScrollTop + windowHeight) > ($("#about").offset().top + $("#about").height() + windowHeight*.12 + $(".tryout-banner").outerHeight())){
-        $(".tryout-banner").addClass("fixed");
+      if ((lastScrollTop + windowHeight) > ($("#about").offset().top + $("#about").height() + windowHeight*.12)){
+        $(".tryout-banner").slideDown();
       }
       else {
-        $(".tryout-banner").removeClass("fixed");
+        $(".tryout-banner").slideUp();
       }
       animating = false;
     }
