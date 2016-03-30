@@ -44,6 +44,15 @@
       </div>
     </div>
   </div>
+  <div class="tryout-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          If you are interested in trying out for Wild Card for the 2016 season, please complete <a href="https://docs.google.com/forms/d/17Pudc2CH0_7O0kqDJ44NzDl1T8ovpHNSdmLCPxfhJ3U/viewform?c=0&w=1" target="_blank">this survey</a>!
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="section" id="values">
   <div class="container">
@@ -124,6 +133,10 @@
       requestAnimation();
     }
 
+    function updateBodyMargin(){
+      $('body').css("margin-bottom", $(".tryout-banner").outerHeight() + "px");
+    }
+
     function requestAnimation(){
       if (!animating){
         animating = true;
@@ -143,9 +156,18 @@
         var opacity = (lastScrollTop + (4/5)*windowHeight - animationObject.offset().top) / (animationObject.height() < windowHeight ? animationObject.height() : windowHeight)
         animationObject.find(".container:first").css("opacity", opacity.toFixed(3));
       }
+      if ((lastScrollTop + windowHeight) > ($("#about").offset().top + $("#about").height() + windowHeight*.12 + $(".tryout-banner").outerHeight())){
+        $(".tryout-banner").addClass("fixed");
+      }
+      else {
+        $(".tryout-banner").removeClass("fixed");
+      }
       animating = false;
     }
 
     $(window).bind('scroll',  scrollListener);
+    $(window).resize(updateBodyMargin);
+    updateBodyMargin();
+
   });
 </script>
