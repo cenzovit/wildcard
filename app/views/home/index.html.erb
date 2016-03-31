@@ -151,11 +151,13 @@
 
     function update(){
       var windowHeight = $(window).height();
+      /*
       for(var index = 0; index < animationObjects.length; index++){
         var animationObject = animationObjects.eq(index);
         var opacity = (lastScrollTop + (4/5)*windowHeight - animationObject.offset().top) / (animationObject.height() < windowHeight ? animationObject.height() : windowHeight)
         animationObject.find(".container:first").css("opacity", opacity.toFixed(3));
       }
+      */
       if ((lastScrollTop + windowHeight) > ($("#about").offset().top + $("#about").height() + windowHeight*.12)){
         $(".tryout-banner").slideDown();
       }
