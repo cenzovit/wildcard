@@ -167,7 +167,7 @@
       animating = false;
     }
 
-    $(window).on('scroll touchmove',  scrollListener);
+    $(window).on('scroll touchmove touchstart',  scrollListener);
     $(window).resize(updateBodyMargin);
     updateBodyMargin();
 
