@@ -126,7 +126,7 @@
   $(document).ready(function () {
     var animating = false;
     var lastScrollTop = $(document).scrollTop();
-    var animationObjects = $(".section");
+    var bannerOuterHeight = $(".tryout-banner").outerHeight();
 
     function scrollListener(){
       lastScrollTop = $(document).scrollTop();
@@ -134,7 +134,8 @@
     }
 
     function updateBodyMargin(){
-      $('body').css("margin-bottom", $(".tryout-banner").outerHeight() + "px");
+      bannerOuterHeight = $(".tryout-banner").outerHeight();
+      $('body').css("margin-bottom", bannerOuterHeight + "px");
     }
 
     function requestAnimation(){
@@ -151,13 +152,6 @@
 
     function update(){
       var windowHeight = $(window).height();
-      /*
-      for(var index = 0; index < animationObjects.length; index++){
-        var animationObject = animationObjects.eq(index);
-        var opacity = (lastScrollTop + (4/5)*windowHeight - animationObject.offset().top) / (animationObject.height() < windowHeight ? animationObject.height() : windowHeight)
-        animationObject.find(".container:first").css("opacity", opacity.toFixed(3));
-      }
-      */
       if ((lastScrollTop + windowHeight) > ($("#about").offset().top + $("#about").height() + windowHeight*.12)){
         $(".tryout-banner").slideDown();
       }
