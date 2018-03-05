@@ -123,6 +123,8 @@
   cursor: default;
   position: relative;
   display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 
   .sport {
     margin-left: 10px;
