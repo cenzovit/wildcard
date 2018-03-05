@@ -7,7 +7,7 @@
 }
 
 .tryout-banner {
-  -webkit-animation: mobileHack 1ms; 
+  -webkit-animation: mobileHack 1ms;
   animation: mobileHack 1ms;
   display: none;
   position: absolute;
@@ -100,13 +100,13 @@
 
   .container {
     font-size: 18px;
-    a.icon-twitter:hover { 
+    a.icon-twitter:hover {
       color: #4099FF;
     }
-    a.icon-blogger:hover { 
+    a.icon-blogger:hover {
       color: #FE4E00;
     }
-    a.icon-savage:hover { 
+    a.icon-savage:hover {
       color: #106236;
     }
 
@@ -229,7 +229,7 @@ background: $spec-backgrounds;
     position: relative;
     overflow: auto;
     padding-top: $size;
-  }  
+  }
   &:before {
     top: 0px;
     background-position: left top;
@@ -262,94 +262,94 @@ background: $spec-backgrounds;
   background-size: $size $size;
 }
 
-@-moz-keyframes fadeIn { 
-  0% { 
-    opacity:0; 
-  } 
-  100% { 
-    opacity:1; 
-  } 
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
-@-webkit-keyframes fadeIn { 
-  0% { 
-    opacity:0; 
-  } 
-  100% { 
-    opacity:1; 
-  } 
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
 @-o-keyframes fadeIn {
-  0% { 
-    opacity:0; 
-  } 
-  100% { 
-    opacity:1; 
-  } 
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
 @-ms-keyframes fadeIn {
-  0% { 
-    opacity:0; 
-  } 
-  100% { 
-    opacity:1; 
-  } 
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
-@keyframes fadeIn { 
-  0% { 
-    opacity:0; 
-  } 
-  100% { 
-    opacity:1; 
-  } 
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
 }
 
-@-moz-keyframes fadeOut { 
-  0% { 
-    opacity:1; 
-  } 
-  100% { 
-    opacity:0; 
-  } 
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
-@-webkit-keyframes fadeOut { 
-  0% { 
-    opacity:1; 
-  } 
-  100% { 
-    opacity:0; 
-  } 
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
 @-o-keyframes fadeOut {
-  0% { 
-    opacity:1; 
-  } 
-  100% { 
-    opacity:0; 
-  } 
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
 @-ms-keyframes fadeOut {
-  0% { 
-    opacity:1; 
-  } 
-  100% { 
-    opacity:0; 
-  } 
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
-@keyframes fadeOut { 
-  0% { 
-    opacity:1; 
-  } 
-  100% { 
-    opacity:0; 
-  } 
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
 @-moz-keyframes fadebounce {
@@ -411,7 +411,7 @@ background: $spec-backgrounds;
     -ms-transform:translateY(0);
     transform:translateY(0);
     opacity:0.2
-  } 
+  }
   50% {
     -ms-transform:translateY(4vh);
     transform:translateY(4vh);
@@ -439,15 +439,15 @@ background: $spec-backgrounds;
 }
 
 .fade-in {
-  opacity:0;  
+  opacity:0;
 
-  -webkit-animation: fadeIn ease-in 1;  
+  -webkit-animation: fadeIn ease-in 1;
   -moz-animation: fadeIn ease-in 1;
   -ms-animation-name: fadeIn ease-in 1;
   -o-animation-name: fadeIn ease-in 1;
   animation: fadeIn ease-in 1;
 
-  -webkit-animation-fill-mode: forwards;  
+  -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
@@ -461,15 +461,15 @@ background: $spec-backgrounds;
 }
 
 .fade-out {
-  opacity:1;  
+  opacity:1;
 
-  -webkit-animation: fadeOut ease-in 1;  
+  -webkit-animation: fadeOut ease-in 1;
   -moz-animation: fadeOut ease-in 1;
   -ms-animation-name: fadeOut ease-in 1;
   -o-animation-name: fadeOut ease-in 1;
   animation: fadeOut ease-in 1;
 
-  -webkit-animation-fill-mode: forwards;  
+  -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   -o-animation-fill-mode: forwards;
@@ -494,7 +494,7 @@ background: $spec-backgrounds;
   -ms-animation-duration: 3s;
   -o-animation-duration: 3s;
   animation-duration: 3s;
-  
+
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -ms-animation-iteration-count: infinite;
@@ -535,8 +535,8 @@ background: $spec-backgrounds;
   }
 }
 
-#about, 
-#values, 
+#about,
+#values,
 #more-info {
   position: relative;
 
@@ -734,7 +734,7 @@ background: $spec-backgrounds;
       width: 148px;
     }
   }
-  
+
 }
 
 @-webkit-keyframes mobileHack {
