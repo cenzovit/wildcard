@@ -121,6 +121,23 @@
 .brand {
   font-size: 55px;
   cursor: default;
+  position: relative;
+  display: inline-flex;
+
+  .sport {
+    margin-left: 10px;
+  }
+
+  .season {
+    position: absolute;
+    bottom: -42px;
+    right: 0;
+    transform: rotateZ(-10deg);
+  }
+}
+
+.lazer84 {
+  font-family: 'Lazer84' !important;
 }
 
 .lato-900 {
@@ -685,6 +702,13 @@ background: $spec-backgrounds;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Lazer84';
+  src: url('/assets/Lazer84.ttf?-ky3tcc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'wildcard';
   speak: none;
@@ -726,6 +750,9 @@ background: $spec-backgrounds;
   }
   .brand {
     font-size: 32px;
+    .season {
+      bottom: -25px;
+    }
   }
   .sponsor {
     font-size: 12px;
