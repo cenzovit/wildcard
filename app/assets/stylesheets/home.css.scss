@@ -746,6 +746,12 @@ background: $spec-backgrounds;
   }
   .full-bleed-section {
     min-height: 0;
+    .container {
+      padding: 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
   }
   .full-bleed {
     max-height: auto;
@@ -757,8 +763,8 @@ background: $spec-backgrounds;
     }
   }
   .sponsor {
+    align-self: flex-start;
     font-size: 12px;
-    padding-left: 15px;
     img {
       width: 148px;
     }
