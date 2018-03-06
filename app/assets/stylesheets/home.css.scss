@@ -456,7 +456,8 @@ hr.wc-hr:after {
   }
 
   #down-hint-arrow {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     line-height: 8vh;
 
     .fa-stack {
@@ -681,7 +682,12 @@ hr.wc-hr:after {
       width: 148px;
     }
   }
+}
 
+@media (max-width: 360px){
+  .brand {
+    font-size: 28px;
+  }
 }
 
 @-webkit-keyframes mobileHack {
